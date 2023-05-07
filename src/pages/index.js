@@ -8,7 +8,7 @@ export default function Home() {
           <Image className="relative" height={'300'} width={'300'} src="/img/haze-programmer-writing-code-on-laptop.png" alt="Illustration by xopolin from Ouch!" priority />
         </div>
         <p className="text-4xl font-bold text-gray-700 capitalize tracking-wide mt-8">Website under maintenance!</p>
-        <p className="text-xl text-gray-700 uppercase mt-4">We'll be back soon</p>
+        <p className="text-xl text-gray-700 uppercase mt-4">We&apos;ll be back soon</p>
       </div>
     </main>
   );
