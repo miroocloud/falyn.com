@@ -5,8 +5,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -15,29 +14,20 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["@cloudflare/workers-types/2023-07-01"],
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "paths": {
-      "~data/*": ["./src/_data/*"],
-      "~types/*": ["./src/types/*"],
-      "@achor": ["./src/components/Anchor"],
       "@utils": ["./src/utils/utils.ts"],
-      "@utils/*": ["./src/utils/*"],
       "@lib/*": ["./src/lib/*"],
+      "@ui/*": ["./src/components/ui/*"],
       "@components/*": ["./src/components/*"],
       "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+    },
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
 }
