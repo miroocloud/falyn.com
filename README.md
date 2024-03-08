@@ -3,9 +3,6 @@
 The code behind my personal site.</br>
 That's it. Thanks.
 
-- [Fayln-API](#) ~ Rest API build with Fastify
-- [Fayln-Forms](https://github.com/faridhnzz/fayln-form) ~ Forms API build with Cloudflare Workers
-
 ### Setup
 
 ```bash
