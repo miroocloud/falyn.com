@@ -17,8 +17,8 @@ import { Textarea } from "@components/ui/textarea";
 import { Button } from "@components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { RequiredIndicator } from "@components/ui/required-indicator";
-import { Obfuscate } from "@south-paw/react-obfuscate-ts";
 import { IconRefresh, IconSend, IconLoader2 } from "@tabler/icons-react";
+import Anchor from "@achor";
 
 import { ContactSchema, ContactFormValues } from "./schema";
 type WidgetStatus = "solved" | "error" | "expired" | null;
@@ -54,6 +54,7 @@ export default function ContactForm() {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: JSON.stringify({ type: "contact", ...data }),
+        cache: "no-cache",
       }
     );
 
@@ -92,7 +93,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="rounded border -m-4 p-4 md:p-8 shadow-md focus:shadow-lg shadow-gray-300 before:shadow-gray-400/50 dark:shadow-gray-700 dark:focus:shadow-gray-700/50">
+    <div className="rounded border -m-4 p-4 md:p-8 bg-secondary shadow-md focus:shadow-lg shadow-gray-300 before:shadow-gray-400/50 dark:shadow-gray-700 dark:focus:shadow-gray-700/50">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
@@ -169,7 +170,6 @@ export default function ContactForm() {
           <div className="flex md:justify-center">
             <Turnstile
               ref={turnstileRef}
-              injectScript={false}
               siteKey={siteKey}
               onError={() => setStatus("error")}
               onExpire={() => setStatus("expired")}
@@ -190,7 +190,7 @@ export default function ContactForm() {
                 disabled={!form.formState.isDirty || isLoading}
               >
                 <IconRefresh className="mr-2 h-4 w-4 duration-800 group-hover:animate-spin" />
-                Reset Field
+                Reset
               </Button>
 
               <Button
@@ -211,12 +211,12 @@ export default function ContactForm() {
 
             <div className="cursor-default text-sm flex md:justify-end">
               <span className="mr-1 tracking-tight">or email me at</span>
-              <Obfuscate
-                email
-                className="cursor-pointer underline underline-offset-2 text-sky-600 dark:text-sky-500"
+              <Anchor
+                href="mailto:farid@fayln.com"
+                className="cursor-pointer hover:!text-sky-500 dark:hover:!text-sky-300 text-sky-600 dark:text-sky-500"
               >
                 farid@fayln.com
-              </Obfuscate>
+              </Anchor>
             </div>
           </div>
         </form>

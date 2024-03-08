@@ -1,27 +1,25 @@
 "use client";
 import Anchor from "@achor";
-import { Mail } from "lucide-react";
-import { Button } from "@components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Obfuscate } from "@south-paw/react-obfuscate-ts";
 
 import sosialData from "~data/sosial";
 
 export default function FindMeOn() {
   return (
-    <>
+    <div className="flex gap-3">
       {sosialData.map((items, i) => (
         <TooltipProvider key={i}>
           <Tooltip>
             <TooltipTrigger className="cursor-default" asChild>
               <Anchor
                 href={items.href}
-                className="cursor-pointer p-1.5 rounded hover:bg-gray-300 dark:hover:bg-gray-700 hover:scale-105"
+                aria-label={items.name}
+                className="cursor-pointer rounded p-1.5 hover:scale-105 hover:bg-gray-300 dark:hover:bg-gray-700"
                 newWindow
                 noFollow
               >
@@ -34,6 +32,6 @@ export default function FindMeOn() {
           </Tooltip>
         </TooltipProvider>
       ))}
-    </>
+    </div>
   );
 }

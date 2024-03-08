@@ -11,6 +11,7 @@ export default function ThemeSwitcher() {
   return (
     <>
       <Button
+        aria-label="BUtton Dark Mode"
         variant="default"
         type="button"
         size="icon"

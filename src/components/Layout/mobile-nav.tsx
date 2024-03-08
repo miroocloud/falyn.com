@@ -23,8 +23,8 @@ export default function MobileNav({ data }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          className="flex h-9 w-9 items-center justify-center p-0 md:hidden"
           type="button"
+          className="flex h-9 w-9 items-center justify-center p-0 md:hidden dark:bg-gray-700"
           aria-label="Toggle menu"
           variant="outline"
         >

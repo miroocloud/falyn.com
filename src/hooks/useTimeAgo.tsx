@@ -6,7 +6,7 @@ function getYearsAgo(date: Date): number {
   return timestamp;
 }
 
-export function useYearsAgo(date: Date) {
+export default function useYearsAgo(date: Date) {
   const [years, setYears] = useState(getYearsAgo(date));
 
   useEffect(() => {

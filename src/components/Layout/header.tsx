@@ -1,30 +1,31 @@
 "use client";
 import Anchor from "@achor";
+import { cn } from "@utils";
 import { Separator } from "@components/ui/separator";
 import ThemeSwitcher from "./theme-switch";
 import MenuNav from "./menu-nav";
 import MobileNav from "./mobile-nav";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import useScroll from "@/hooks/useScroll";
 
 import MenuNavigation from "~data/menu";
 
 export default function Header() {
+  const scroll = useScroll();
+
   return (
     <>
-      <header className="base-header">
+      <header
+        className={cn(
+          "base-header",
+          scroll === "Down" && "backdrop-blur-xl backdrop-brightness-80"
+        )}
+      >
         <Anchor
           aria-label="Homepage"
           className="flex justify-center items-center gap-x-2 select-none"
         >
-          <Avatar>
-            <AvatarImage
-              src="https://avatars-githubusercontent.webp.se/u/29797712"
-              alt="Farid's Logo"
-            />
-            <AvatarFallback>FN</AvatarFallback>
-          </Avatar>
           <div className="flex tracking-tigh leading-none font-bold text-black/90 dark:text-white/90">
-            Fayln
+            fayln.com
           </div>
         </Anchor>
 

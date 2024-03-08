@@ -21,6 +21,7 @@ export default function MenuNav({ data }) {
             return (
               <li key={i}>
                 <Anchor
+                  aria-label={items.name}
                   href={items.href}
                   newWindow={items.openWindows}
                   className={cn(

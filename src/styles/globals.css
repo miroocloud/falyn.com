@@ -80,8 +80,7 @@ body {
 }
 
 .base-header {
-  @apply sticky top-0 left-0 z-10 h-[60px] mt-1 md:mt-4 px-2 lg:px-3 max-w-7xl;
-  @apply backdrop-blur-xl md:rounded-lg;
+  @apply sticky top-0 left-0 z-10 h-[60px] mt-1 md:mt-4 px-2 lg:px-3 max-w-5xl;
   @apply flex justify-between items-center mx-auto;
 }
 

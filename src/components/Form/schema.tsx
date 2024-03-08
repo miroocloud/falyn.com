@@ -17,9 +17,9 @@ const ContactSchema = z.object({
   }),
 });
 
-// const ReportIssueSchema = z.object({
-//     security_level:
-// })
+const ReportIssueSchema = z.object({
+  security_level: z.enum([""]),
+});
 
 export type ContactFormValues = z.infer<typeof ContactSchema>;
 export { ContactSchema };

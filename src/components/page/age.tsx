@@ -1,5 +1,5 @@
 "use client";
-import { useYearsAgo } from "@/hooks/useTimeAgo";
+import useYearsAgo from "@/hooks/useTimeAgo";
 import { cn } from "@utils";
 import {
   Tooltip,

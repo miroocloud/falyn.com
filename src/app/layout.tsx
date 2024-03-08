@@ -3,12 +3,9 @@ import type { Metadata } from "next";
 import type { ChildrenProps } from "~types/default";
 import { Inter, Fira_Code } from "next/font/google";
 import { cn } from "@utils";
-import Image from "next/image";
-
+import NextTopLoader from "nextjs-toploader";
 import { ThemeProvider } from "@lib/theme-provider";
 import { Toaster } from "@components/ui/toaster";
-import Header from "@components/Layout/header";
-import Footer from "@components/Layout/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,7 +28,6 @@ export const metadata: Metadata = {
   },
   description:
     "Hey, I am Farid Nizam. A Network Engineering also a Pull-stack Developer (pull everything from the internet).",
-  keywords: ["farid nizam", "farid", "fayln", "faridhnzz"],
   alternates: {
     canonical: "/",
   },
@@ -55,7 +51,9 @@ export default function RootLayout({ children }: ChildrenProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={cn(inter.className, firaCode.className)}>
         <ThemeProvider attribute="class" defaultTheme="dark">
+          <NextTopLoader color="#e11d48" showSpinner={true} />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
