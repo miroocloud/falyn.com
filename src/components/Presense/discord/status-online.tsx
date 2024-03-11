@@ -1,24 +1,15 @@
 "use client";
 import { cn } from "@utils";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-const StatusColor = {
+const StatusColor: Record<string, string> = {
   online: "#43b581",
   idle: "#faa61a",
   dnd: "#f04747",
   offline: "#747f8d",
 };
 
-export default function DIscordIsOnline({
-  className = "",
-}: {
-  className?: string;
-}) {
+export default function DIscordIsOnline({ className = "" }: { className?: string }) {
   const status: string = "online";
   const activeOnMobile: boolean = false;
 
@@ -28,11 +19,7 @@ export default function DIscordIsOnline({
         <TooltipTrigger className="cursor-default" asChild>
           <div className={cn("flex items-center", className)}>
             {!activeOnMobile && (
-              <svg
-                height="38"
-                width="24"
-                style={{ color: StatusColor[status] }}
-              >
+              <svg height="38" width="24" style={{ color: StatusColor[status] }}>
                 <rect
                   width="24"
                   height="24"
@@ -51,12 +38,11 @@ export default function DIscordIsOnline({
           {status === "dnd"
             ? "Do not disturb"
             : status === "online" && activeOnMobile
-            ? "Online on Mobile"
-            : status?.replace(
-                /\w\S*/g,
-                (txt) =>
-                  txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-              )}
+              ? "Online on Mobile"
+              : status?.replace(
+                  /\w\S*/g,
+                  (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
+                )}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

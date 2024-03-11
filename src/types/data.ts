@@ -1,36 +1,65 @@
-export interface StyleProjectItemsProps {
-  bgColor?: string;
-  textColor?: string;
-}
+import type { StaticImageData } from "next/image";
 
-export interface StackProjectItemsProps {
+interface Base {
   name: string;
-  class?: string;
-  style?: StyleProjectItemsProps;
+  href: string;
 }
 
-export interface ProjectItemsDataProps {
+interface Icon {
+  icon?: JSX.Element;
+}
+
+interface Anchor {
+  anchor?: {
+    newWindow: boolean;
+    rel?: "nofollow" | "author" | "me" | "sponsored" | "ugc";
+  };
+}
+
+// Sosial (FindMeSosial)
+export type SosialProps = Base & Icon & Anchor;
+// Sosial (ContactInfomation)
+export type ContactProps = { value: string } & Base & Icon & Anchor;
+
+// Navigation
+interface Navigation {
+  show: "all" | "footer" | "header";
+  type?: string;
+}
+
+export type NavigationProps = Base & Anchor & Navigation;
+
+// Project
+interface Project extends Anchor {
+  id: number;
   name: string;
   desc: string;
-  href: string;
-  bgColor?: string;
-  pinned?: boolean;
+  category: string;
+  homepage?: string;
+  thumbnail?: string;
+  repositories?: string;
+  featured?: boolean;
   new?: boolean;
-  stack: StackProjectItemsProps[];
+  color?: {
+    bg?: string;
+    mask?: string;
+  };
+  stack?: ProjectStack[];
 }
 
-export interface MenuNavigationProps {
-  [x: string]: any;
+interface ProjectStack {
   name: string;
-  href: string;
-  icon?: JSX.Element;
-  showNavbar?: boolean;
-  showFooter?: boolean;
-  openWindows?: boolean;
 }
 
-export interface SosialProps {
+export type ProjectProps = Project;
+
+// Tech Stacks
+export type StacksProps = {
+  id: number;
   name: string;
-  href: string;
-  icon?: JSX.Element;
-}
+  images?: StaticImageData;
+  color?: {
+    bg: string;
+    text: string;
+  };
+} & Icon;

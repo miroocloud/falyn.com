@@ -1,6 +1,7 @@
 ## Farid's Personal Site (fayln.com)
 
-The code behind my personal site.</br>
+The code behind my personal site.\
+Hosted on [Cloudflare Pages](https://pages.cloudflare.com/).\
 That's it. Thanks.
 
 ### Setup

@@ -1,12 +1,7 @@
 "use client";
 import useYearsAgo from "@/hooks/useTimeAgo";
 import { cn } from "@utils";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 /** Format: month/days/years */
 export default function Age({

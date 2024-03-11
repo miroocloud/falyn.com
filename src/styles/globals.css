@@ -75,7 +75,7 @@ html {
 body {
   @apply bg-white dark:bg-gray-900;
   @apply bg-background text-foreground;
-  @apply relative font-inter;
+  @apply relative
   @apply transition duration-200;
 }
 

@@ -1,27 +1,26 @@
 "use client";
-import Anchor from "@achor";
+import Anchor from "@anchor";
 import { Badge } from "@components/ui/badge";
 import { Separator } from "@components/ui/separator";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 
-import MenuNavigation from "~data/menu";
+import { NavFooter } from "@/_data/navigation";
 
 export default function Footer() {
   return (
     <>
-      <footer className="max-w-5xl mx-auto relative pb-6 mt-14 px-4">
-        <Separator className="max-w-5xl m-auto dark:bg-gray-600 bg-gray-400/90" />
-        <div className="sm:text-center max-w-sm sm:max-w-7xl mx-auto space-y-6 text-sm">
+      <footer className="relative mx-auto mt-14 max-w-5xl px-4 pb-6">
+        <Separator className="m-auto max-w-5xl bg-gray-400/90 dark:bg-gray-600" />
+        <div className="mx-auto max-w-sm space-y-6 text-sm sm:max-w-7xl sm:text-center">
           <div className="pt-6">
-            <ul className="grid grid-cols-2 sm:flex justify-center font-mono gap-4 sm:gap-10">
-              {MenuNavigation.map((item, i) => (
+            <ul className="grid grid-cols-2 justify-center gap-4 font-mono sm:flex sm:gap-10">
+              {NavFooter.map((item, i) => (
                 <li key={i}>
                   <Anchor
                     href={item.href}
-                    newWindow={item.openWindows}
                     aria-label={item.name}
-                    className="border-b border-transparent hover:border-gray-700 dark:hover:border-gray-500"
-                  >
+                    newWindow={item.anchor?.newWindow}
+                    className="border-b border-transparent hover:border-gray-700 hover:font-semibold dark:hover:border-gray-500">
                     {item.name}
                   </Anchor>
                 </li>
@@ -31,22 +30,29 @@ export default function Footer() {
 
           <div className="flex justify-center text-center">
             <Badge variant="secondary" className="cursor-default">
-              <div className="h-[18px] inline-block leading-none mr-2 text-center w-[18px]">
+              <div className="mr-2 inline-block h-[18px] w-[18px] text-center leading-none">
                 <IconCircleCheckFilled
                   width={18}
                   height={18}
                   className="inline-block text-green-500"
                 />
               </div>
-              <div className="dark:text-white font-medium text-[14px] text-neutral-600 whitespace-nowrap">
+              <div className="whitespace-nowrap text-[14px] font-medium text-neutral-600 dark:text-white">
                 All services are online
               </div>
             </Badge>
           </div>
 
-          <div className="mt-20 flex flex-col md:flex-row items-center md:justify-between text-sm">
-            <div>&copy; {new Date().getFullYear()} Farid Nizam</div>
-            <div>SIN | 12 ms</div>
+          <div className="mt-20 flex flex-col items-center text-sm md:flex-row md:justify-between">
+            <div className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()}{" "}
+              <Anchor className="hover:text-black hover:underline hover:dark:text-white">
+                {" "}
+                Farid Nizam
+              </Anchor>
+              . All Rights Reserved.
+            </div>
+            {/* <div>SIN | 12 ms</div>  */}
           </div>
         </div>
       </footer>

@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -21,23 +21,15 @@
       }
     ],
     "paths": {
-      "~data/*": ["./src/_data/*"],
-      "~types/*": ["./src/types/*"],
-      "@achor": ["./src/components/Anchor"],
+      "@anchor": ["./src/components/ui/anchor.tsx"],
+      "@achor": ["./src/components/ui/anchor.tsx"],
       "@utils": ["./src/utils/utils.ts"],
       "@utils/*": ["./src/utils/*"],
       "@lib/*": ["./src/lib/*"],
       "@components/*": ["./src/components/*"],
-      "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -5,29 +5,20 @@ import { forwardRef } from "react";
 
 type AnchorProps = Omit<ComponentProps<"a">, "ref"> & {
   newWindow?: boolean;
-  noFollow?: boolean;
-  rel?: string;
+  rel?: "nofollow" | "author" | "me" | "sponsored" | "ugc";
 };
 
 const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(function (
-  { href = "/", children, newWindow, noFollow, ...props },
+  { href, children, newWindow, rel, ...props },
   forwardedRef
 ): ReactElement {
-  if (newWindow)
-    return (
-      <Link
-        ref={forwardedRef}
-        href={href}
-        rel={noFollow && "noopener noreferrer"}
-        target="_blank"
-        {...props}
-      >
-        {children}
-      </Link>
-    );
-
   return (
-    <Link ref={forwardedRef} href={href} {...props}>
+    <Link
+      ref={forwardedRef}
+      href={href ? href : "/"}
+      target={newWindow ? "_blank" : undefined}
+      rel={rel === "nofollow" ? "noopener noreferrer" : rel || undefined}
+      {...props}>
       {children}
     </Link>
   );

@@ -1,26 +1,15 @@
-import "../styles/globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
-import type { ChildrenProps } from "~types/default";
-import { Inter, Fira_Code } from "next/font/google";
-import { cn } from "@utils";
+import type { ChildrenProps } from "@/types/default";
 import NextTopLoader from "nextjs-toploader";
 import { ThemeProvider } from "@lib/theme-provider";
-import { Toaster } from "@components/ui/toaster";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  display: "swap",
-});
+import { Toaster } from "@components/ui/sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === "production"
       ? "https://fayln.com"
-      : "http://localhost:3000"
+      : "http://localhost:3000",
   ),
   title: {
     template: "%s | Farid Nizam",
@@ -49,11 +38,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(inter.className, firaCode.className)}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <NextTopLoader color="#e11d48" showSpinner={true} />
+      <head>
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/latin.min.css"
+        />
+      </head>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          storageKey="theme"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          <NextTopLoader color="#e11d48" showSpinner={false} />
           {children}
-          <Toaster />
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>

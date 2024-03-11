@@ -1,28 +1,24 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import tailwindAnimate from "tailwindcss-animate";
+import twTypography from "@tailwindcss/typography";
+import twAnimate from "tailwindcss-animate";
 
 export default {
-  darkMode: "class",
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: ["class"],
+  content: ["./src/app/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
+  prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        md: "896px",
+        lg: "1024px",
       },
     },
     extend: {
       fontFamily: {
-        // default: ["Fira Code", ...fontFamily.sans],
-        inter: ["Inter", ...fontFamily.sans],
-        "fira-code": ["Fira Code", ...fontFamily.sans],
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        geist: ["Geist Sans", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -58,6 +54,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "blue-violet": "rgb(138,43,226,100)",
+      },
+      backgroundColor: {
+        fade: "linear-gradient(90deg,var(#fdfdfc),transparent 20%,transparent 80%,var(#fdfdfc))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -66,19 +66,29 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0px" },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0px" },
+          to: { height: "0" },
+        },
+        slide: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        loop: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        slide: "slide 10s linear infinite",
+        "slide-infinite": "slide 15s linear infinite loop",
       },
     },
   },
-  plugins: [tailwindAnimate],
+  plugins: [twTypography, twAnimate],
 } satisfies Config;

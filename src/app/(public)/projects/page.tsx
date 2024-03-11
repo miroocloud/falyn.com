@@ -1,40 +1,49 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import { Separator } from "@components/ui/separator";
-import { allProjects } from "contentlayer/generated";
+import Hero from "@components/ui/hero";
+import Anchor from "@components/ui/anchor";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
-import Hero from "@components/Layout/hero";
-// import ProjectsList from "@components/page/projects-list";
-import Projects from "@components/page/projects";
+import { Project as ProjectData } from "@/_data/projects";
+import ProjectCard from "@components/projects/project-card";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "A list of Farid's projects.",
+  description: "A list of Farid's projects done so far.",
 };
 
-export default function page() {
+export default function projects() {
   return (
-    <Hero className="my-8 space-y-6 pt-8">
-      <article className="mx-auto">
-        <div className="space-x-1">
-          <h1 className="text-2xl font-semibold tracking-tighter lg:text-4xl">
-            Projects
-          </h1>
-          <p className="pt-3 text-lg text-muted-foreground">
-            Several projects that I have worked on, both private and open
-            source.
-          </p>
-        </div>
-      </article>
-      <Separator className="bg-slate-300 md:max-w-xs" />
+    <Hero className="space-y-6 pt-2 md:mt-4">
+      <div className="flex flex-col gap-7">
+        <article className="flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold">Projects</h1>
+            <p className="pt-3">Here are some of my projects.</p>
+          </div>
+          <Anchor
+            className="opacity-80 hover:opacity-100"
+            href="https://go.fayln.com/github"
+            newWindow>
+            <IconArrowUpRight size={38} />
+          </Anchor>
+        </article>
 
-      <Suspense fallback={<span>Loading projects...</span>}>
-        <div className="grid gap-4 py-10 md:grid-cols-2">
-          {allProjects.map((project, i) => (
-            <Projects key={i} {...project} />
-          ))}
+        <div className="mt-6">
+          <div className="relative grid grid-flow-row-dense grid-cols-1 gap-5 md:grid-cols-2">
+            {ProjectData.map((project, i) => (
+              <ProjectCard key={project.id} {...project} />
+            ))}
+          </div>
+
+          {/* <div className="flex w-full items-center justify-center pt-8">
+        <Button className="gap-2 text-center">
+          <IconRefresh />
+          <span>Load More</span>
+        </Button>
+      </div> */}
         </div>
-      </Suspense>
+      </div>
     </Hero>
   );
 }
