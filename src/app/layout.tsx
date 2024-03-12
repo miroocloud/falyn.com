@@ -2,14 +2,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 import type { ChildrenProps } from "@/types/default";
 import NextTopLoader from "nextjs-toploader";
-import { ThemeProvider } from "@lib/theme-provider";
-import { Toaster } from "@components/ui/sonner";
+import { ThemeProvider } from "@/lib/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NODE_ENV === "production"
-      ? "https://fayln.com"
-      : "http://localhost:3000",
+    process.env.NODE_ENV === "production" ? "https://fayln.com" : "http://localhost:3000",
   ),
   title: {
     template: "%s | Farid Nizam",
@@ -50,8 +48,7 @@ export default function RootLayout({ children }: ChildrenProps) {
           attribute="class"
           storageKey="theme"
           defaultTheme="dark"
-          enableSystem={false}
-        >
+          enableSystem={false}>
           <NextTopLoader color="#e11d48" showSpinner={false} />
           {children}
           <Toaster richColors />

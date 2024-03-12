@@ -1,7 +1,7 @@
 "use client";
-import Anchor from "@anchor";
+import Anchor from "@/components/ui/anchor";
 import { Menu } from "lucide-react";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,

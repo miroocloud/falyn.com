@@ -21,12 +21,6 @@
       }
     ],
     "paths": {
-      "@anchor": ["./src/components/ui/anchor.tsx"],
-      "@achor": ["./src/components/ui/anchor.tsx"],
-      "@utils": ["./src/utils/utils.ts"],
-      "@utils/*": ["./src/utils/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@components/*": ["./src/components/*"],
       "@/*": ["./src/*"]
     }
   },

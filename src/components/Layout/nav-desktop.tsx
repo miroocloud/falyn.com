@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Anchor from "@anchor";
-import { cn } from "@utils";
+import Anchor from "@/components/ui/anchor";
+import { cn } from "@/lib/utils";
 import type { Key } from "react";
 import type { NavigationProps } from "@/types/data";
 

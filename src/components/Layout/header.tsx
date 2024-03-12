@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { IconSlashes } from "@tabler/icons-react";
-import { cn } from "@utils";
+import { cn } from "@/lib/utils";
 import useScroll from "@/hooks/useScroll";
-import Anchor from "@anchor";
-import { Separator } from "@components/ui/separator";
+import Anchor from "@/components/ui/anchor";
+import { Separator } from "@/components/ui/separator";
 import ThemeSwitcher from "./theme-switch";
 import DesktopNav from "./nav-desktop";
 import MobileNav from "./nav-mobile";

@@ -1,6 +1,5 @@
 "use client";
-import ProjectCard from "@components/projects/project-card";
-import type { Key } from "react";
+import ProjectCard from "@/components/projects/project-card";
 import type { ProjectProps } from "@/types/data";
 
 import { Project } from "@/_data/projects";

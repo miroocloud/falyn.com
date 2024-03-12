@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@utils";
+import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const StatusColor: Record<string, string> = {

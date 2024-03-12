@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@utils";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(

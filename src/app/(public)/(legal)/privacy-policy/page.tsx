@@ -1,5 +1,5 @@
-import { Separator } from "@components/ui/separator";
-import Anchor from "@components/ui/anchor";
+import { Separator } from "@/components/ui/separator";
+import Anchor from "@/components/ui/anchor";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <article className="prose dark:prose-invert md:prose-lg mx-auto pt-6">
+    <article className="prose mx-auto pt-6 dark:prose-invert md:prose-lg">
       <h1 className="text-4xl font-bold">Privacy Policy</h1>
       <em>Last updated: February 10, 2024</em>
 

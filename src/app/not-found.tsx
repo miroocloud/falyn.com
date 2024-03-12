@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Anchor from "@achor";
-import { Button } from "@components/ui/button";
+import Anchor from "@/components/ui/anchor";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Not Found",

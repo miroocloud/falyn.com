@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Hero from "@components/ui/hero";
-import Anchor from "@components/ui/anchor";
+import Hero from "@/components/ui/hero";
+import Anchor from "@/components/ui/anchor";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
 import { Project as ProjectData } from "@/_data/projects";
-import ProjectCard from "@components/projects/project-card";
+import ProjectCard from "@/components/projects/project-card";
 
 export const metadata: Metadata = {
   title: "Projects",

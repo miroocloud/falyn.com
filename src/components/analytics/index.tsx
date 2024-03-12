@@ -17,7 +17,7 @@ export function UmamiAnalytics({ url, website_id }: { url: string; website_id: s
 
 // Cloudflare Analytics
 const cf_url = "https://static.cloudflareinsights.com/beacon.min.js";
-const cf_proxy = "/datum/cf_insights/b.js";
+const cf_proxy = "/anally/cf_insights/b.js";
 export function CloudflareAnalytics({
   token,
   useProxy = true,

@@ -10,7 +10,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-import { cn } from "@utils";
+import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 
 const Form = FormProvider;
@@ -75,7 +75,7 @@ const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         <div ref={ref} className={cn("space-y-2", className)} {...props} />
       </FormItemContext.Provider>
     );
-  }
+  },
 );
 FormItem.displayName = "FormItem";
 
@@ -141,7 +141,7 @@ const FormMessage = React.forwardRef<
       id={formMessageId}
       className={cn(
         "text-xs font-medium text-muted-foreground text-red-600 dark:text-red-500",
-        className
+        className,
       )}
       {...props}>
       {body}

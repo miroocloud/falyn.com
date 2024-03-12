@@ -1,6 +1,6 @@
 "use client";
-import Anchor from "@components/ui/anchor";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@components/ui/tooltip";
+import Anchor from "@/components/ui/anchor";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { IconExternalLink, IconBrandGithub } from "@tabler/icons-react";
 
 type Links = {

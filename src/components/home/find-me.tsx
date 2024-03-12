@@ -1,6 +1,6 @@
 "use client";
-import Anchor from "@components/ui/anchor";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@components/ui/tooltip";
+import Anchor from "@/components/ui/anchor";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { FindMeSosial } from "@/_data/sosial";
 
 export default function FindMeOnSosial() {

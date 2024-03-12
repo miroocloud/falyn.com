@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
-import { RequiredIndicator } from "@components/ui/required-indicator";
-import { Input } from "@components/ui/input";
-import { Textarea } from "@components/ui/textarea";
-import { Button } from "@components/ui/button";
-import { Label } from "@components/ui/label";
+import { RequiredIndicator } from "@/components/ui/required-indicator";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 import { IconRefresh, IconSend, IconLoader2 } from "@tabler/icons-react";

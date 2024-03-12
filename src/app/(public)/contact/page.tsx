@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Hero from "@components/ui/hero";
-import ContactMessage from "@components/contact/contact-message";
-import { Separator } from "@components/ui/separator";
+import Hero from "@/components/ui/hero";
+import ContactMessage from "@/components/contact/contact-message";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "Contact",

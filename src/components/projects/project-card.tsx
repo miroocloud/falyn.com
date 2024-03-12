@@ -1,10 +1,10 @@
 "use client";
-import Anchor from "@components/ui/anchor";
+import Anchor from "@/components/ui/anchor";
 import Balancer from "react-wrap-balancer";
 
 import { ProjectProps } from "@/types/data";
 import ProjectLinks from "./project-links";
-import { BadgeNew } from "@components/common/badge";
+import { BadgeNew } from "@/components/common/badge";
 
 export default function ProjectCard(project: ProjectProps) {
   const title = `projects-${project.name.toLowerCase()}`;

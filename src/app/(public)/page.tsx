@@ -1,15 +1,15 @@
 import Balancer from "react-wrap-balancer";
-import { cn } from "@utils";
-import Anchor from "@achor";
+import { cn } from "@/lib/utils";
+import Anchor from "@/components/ui/anchor";
 import { IconArrowRight } from "@tabler/icons-react";
-import Hero from "@components/ui/hero";
+import Hero from "@/components/ui/hero";
 
-import Age from "@components/home/age";
-import FindMeOnSosial from "@components/home/find-me";
-import FeaturedProjects from "@components/home/featured-projects";
-import DiscordIsOnline from "@components/Presense/discord/status-online";
-import DiscordPresence from "@components/Presense/discord/presence";
-import SpotifyPresence from "@components/Presense/spotify/presence";
+import Age from "@/components/home/age";
+import FindMeOnSosial from "@/components/home/find-me";
+import FeaturedProjects from "@/components/home/featured-projects";
+import DiscordIsOnline from "@/components/Presense/discord/status-online";
+import DiscordPresence from "@/components/Presense/discord/presence";
+import SpotifyPresence from "@/components/Presense/spotify/presence";
 
 export default function Home() {
   return (

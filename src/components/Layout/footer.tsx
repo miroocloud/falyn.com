@@ -1,7 +1,7 @@
 "use client";
-import Anchor from "@anchor";
-import { Badge } from "@components/ui/badge";
-import { Separator } from "@components/ui/separator";
+import Anchor from "@/components/ui/anchor";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 
 import { NavFooter } from "@/_data/navigation";
