@@ -15,7 +15,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/datum/cf_insights/b.js",
+        source: "/anally/cf_insights/b.js",
         destination: "https://static.cloudflareinsights.com/beacon.min.js",
       },
     ];

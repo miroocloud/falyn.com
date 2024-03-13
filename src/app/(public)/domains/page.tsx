@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Hero from "@/components/layout/hero";
+import Hero from "@/components/ui/hero";
 
 export const metadata: Metadata = {
   title: "Domain List",
