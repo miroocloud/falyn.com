@@ -37,6 +37,7 @@ export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="naver-site-verification" content="df121aab64c02cdf537a2e004e65b016ea85c1d4" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"
