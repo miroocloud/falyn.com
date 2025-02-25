@@ -42,7 +42,7 @@ export default function Home() {
             style={{ backgroundColor: "blueviolet" }}
             className="mask hidden select-none p-6 sm:table-cell">
             <img
-              src="https://avatars-githubusercontent.webp.se/u/29797712"
+              src="https://avatars.githubusercontent.com/u/29797712"
               alt="Farid's Logo"
               width={180}
               height={180}
