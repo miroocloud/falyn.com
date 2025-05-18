@@ -1,0 +1,152 @@
+---
+import Anchor from "./Anchor.astro";
+import { Icon } from "astro-icon/components";
+
+export type Props = {
+  title: string;
+  summary: string;
+  links?: {
+    homepage?: string;
+    repository?: string;
+  };
+  techStack?: string[];
+  status?: string;
+  tags?: string | string[];
+  images?: string;
+  imageAlt?: string;
+  isNew?: boolean;
+  isArchive?: boolean;
+};
+
+const {
+  title,
+  summary,
+  links,
+  techStack,
+  images,
+  imageAlt = title,
+  isNew = false,
+  isArchive = false,
+} = Astro.props;
+---
+
+<article
+  class="group relative rounded-2xl border flex flex-col h-full bg-pastel-light border-pastel-border p-6 transition-all duration-300 ease-in-out will-change-transform origin-top-left hover:shadow-lg animate-fadeIn"
+>
+  {/* badge */}
+  {
+    isNew && (
+      <div
+        class="absolute right-0 top-0 z-10 flex items-center gap-1 rounded-bl-xl rounded-tr-xl px-4 py-2 bg-lime-300 text-emerald-900 text-xs font-semibold"
+        aria-label="New project"
+      >
+        <span>New</span>
+      </div>
+    )
+  }
+  {
+    isArchive && (
+      <div
+        class="absolute right-0 top-0 z-10 flex items-center gap-1 rounded-bl-xl rounded-tr-xl px-4 py-2 bg-red-300 text-red-900 text-xs font-semibold"
+        aria-label="Archived project"
+      >
+        <span>Archive</span>
+      </div>
+    )
+  }
+
+  <div class="flex flex-col h-full">
+    <header>
+      <div class="flex justify-between items-start mb-4">
+        <div
+          class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md bg-violet-300 transition-all duration-300 ease-in-out will-change-transform group-hover:bg-violet-400"
+          aria-hidden="true"
+        >
+          {
+            images ? (
+              <img
+                src={images}
+                alt={imageAlt}
+                width="48"
+                height="48"
+                loading="lazy"
+                itemprop="image"
+              />
+            ) : (
+              <Icon
+                name="mdi:emoticon-cool"
+                class="h-8 w-8 text-white"
+                aria-hidden="true"
+              />
+            )
+          }
+        </div>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-pastel-text" itemprop="name">
+        {title}
+      </h3>
+      <p class="mb-4 text-pastel-subtext" itemprop="description">{summary}</p>
+    </header>
+    <div class="flex flex-col flex-grow">
+      {
+        techStack && techStack.length > 0 && (
+          <div
+            class="flex flex-wrap gap-2 mb-4 mt-auto"
+            aria-label="Technologies used"
+            itemprop="applicationCategory"
+          >
+            {techStack.map((badge: string) => (
+              <span class="text-xs px-2 py-1 rounded bg-pastel-badge text-pastel-text border border-pastel-border">
+                {badge}
+              </span>
+            ))}
+          </div>
+        )
+      }
+      <footer class="flex justify-end gap-3 min-h-10">
+        {
+          links?.homepage && (
+            <Anchor
+              href={links.homepage}
+              openInNewTab
+              class="cursor-pointer rounded p-2 transition-transform duration-300 ease-in-out hover:scale-105 bg-pastel-hover will-change-transform"
+              aria-label={`Visit ${title} homepage`}
+              itemprop="url"
+            >
+              <Icon
+                name="tabler:external-link"
+                class="h-6 w-6"
+                aria-hidden="true"
+              />
+            </Anchor>
+          )
+        }
+        {
+          links?.repository && (
+            <Anchor
+              href={links.repository}
+              openInNewTab
+              class="cursor-pointer rounded p-2 transition-transform duration-300 ease-in-out hover:scale-105 bg-pastel-hover will-change-transform"
+              aria-label={`View ${title} source code`}
+              itemprop="codeRepository"
+            >
+              {links.repository.includes("github") && (
+                <Icon name="mdi:github" class="h-6 w-6" aria-hidden="true" />
+              )}
+              {links.repository.includes("gitlab") && (
+                <Icon
+                  name="tabler:brand-gitlab"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+                />
+              )}
+              {links.repository.includes("bitbucket") && (
+                <Icon name="mdi:bitbucket" class="h-6 w-6" aria-hidden="true" />
+              )}
+            </Anchor>
+          )
+        }
+      </footer>
+    </div>
+  </div>
+</article>

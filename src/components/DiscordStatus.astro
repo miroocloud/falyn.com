@@ -1,0 +1,82 @@
+---
+export type Props = {
+  status: "online" | "idle" | "dnd" | "offline";
+  size?: number;
+};
+
+const { status, size = 12 } = Astro.props;
+
+const statusColors = {
+  online: "#22C55E",
+  idle: "#FBBF24",
+  dnd: "#EF4444",
+  offline: "#9CA3AF",
+};
+
+const labelStatus = status.charAt(0).toUpperCase() + status.slice(1);
+---
+
+<div
+  class="flex items-center gap-2 rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600 cursor-default"
+  role="status"
+  aria-label={`User status is currently ${labelStatus}`}
+  aria-live="polite">
+  {
+    status === "idle" ? (
+      <span
+        class="inline-block relative rounded-full"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: statusColors[status],
+        }}
+        title="Status: Idle"
+        aria-hidden="true">
+        <span
+          class="absolute inset-0 rounded-full bg-slate-100"
+          style={{
+            transform: `translateX(${size * 0.4}px) rotate(160deg) translateY(5px)`,
+            width: `${size}px`,
+            height: `${size}px`,
+          }}
+        />
+      </span>
+    ) : status === "dnd" ? (
+      <span
+        class="inline-block relative rounded-full bg-red-500"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: statusColors[status],
+        }}
+        title="Status: Do Not Disturb"
+        aria-hidden="true">
+        <span
+          class="absolute top-1/2 left-1/2 bg-white rounded"
+          style={{
+            transform: "translate(-50%, -50%)",
+            width: `${size * 0.8}px`,
+            height: `${size * 0.23}px`,
+          }}
+        />
+      </span>
+    ) : (
+      <span
+        class="inline-block rounded-full"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: statusColors[status],
+        }}
+        title={`Status: ${labelStatus}`}
+        aria-hidden="true"
+      />
+    )
+  }
+
+  <span
+    class={status !== "dnd" ? "capitalize" : ""}
+    title={`Status: ${labelStatus}`}>
+    {status}
+  </span>
+</div>

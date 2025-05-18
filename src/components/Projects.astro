@@ -1,0 +1,42 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import projects from "../data/projects.json";
+
+const { pathname } = new URL(Astro.request.url);
+const isHome = pathname === "/";
+
+const visibleProjects = isHome
+  ? projects.filter((p) => p.tags?.includes("featured")).slice(0, 4)
+  : projects;
+
+const showMore =
+  isHome && projects.filter((p) => p.tags?.includes("featured")).length > 2;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  {
+    visibleProjects.map((project) => (
+      <ProjectCard
+        isNew={project.tags?.includes("new")}
+        isArchive={project.tags?.includes("archive")}
+        {...project}
+      />
+    ))
+  }
+</div>
+
+{
+  showMore && (
+    <p class="flex justify-end items-center mt-4">
+      <a
+        href="/projects"
+        class="text-primary group inline-flex items-center transition-all duration-300"
+      >
+        <span>...and more</span>
+        <span class="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
+      </a>
+    </p>
+  )
+}

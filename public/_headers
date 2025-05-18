@@ -1,0 +1,7 @@
+https://:project.pages.dev/\*
+Link: <https://fayln.com/:splat>; rel="canonical"
+X-Robots-Tag: noindex
+
+https://:commit.:project.pages.dev/\*
+Link: <https://fayln.com/:splat>; rel="canonical"
+X-Robots-Tag: noindex

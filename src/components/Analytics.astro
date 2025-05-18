@@ -1,0 +1,63 @@
+---
+export type Props = {
+  umami?: {
+    url: string;
+    website_id: string;
+    doNotTrack?: boolean;
+  };
+  plausible?: {
+    url?: string;
+    domain: string;
+  };
+  cloudflare?: {
+    url?: string;
+    token: string;
+  };
+};
+
+const { umami, plausible, cloudflare } = Astro.props;
+
+// Sanitize the Cloudflare token
+const sanitizeToken = (token: string) => {
+  return token.replace(/"/g, '\\"').replace(/'/g, "\\'");
+};
+---
+
+<!-- Umami Analytics Script -->{
+  umami && (
+    <script is:inline
+      async
+      defer
+      src={umami.url}
+      data-website-id={umami.website_id}
+      data-do-not-track={umami.doNotTrack ? "true" : undefined}
+      data-accept-cookies="true"
+      data-utm-params="utm_source,utm_medium,utm_campaign,utm_content,utm_term"
+    />
+  )
+}
+
+<!-- Plausible Analytics Script -->
+{
+  plausible && (
+    <script is:inline
+      async
+      defer
+      data-domain={plausible.domain}
+      src={plausible.url ?? "https://plausible.io/js/plausible.js"}
+    />
+  )
+}
+
+<!-- Cloudflare Web Analytics Script -->
+{
+  cloudflare && (
+    <script is:inline
+      async
+      src={
+        cloudflare.url ?? "https://static.cloudflareinsights.com/beacon.min.js"
+      }
+      data-cf-beacon={`{"token": "${sanitizeToken(cloudflare.token)}"}`}
+    />
+  )
+}

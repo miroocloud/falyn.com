@@ -1,0 +1,36 @@
+{
+  "full_name": "Farid Nizam",
+  "pronouns": "he/him",
+  "role": ["Network Engineering", "Full-stack Developer"],
+  "bio": "A Network Engineer and also a Pull-stack Developer (pull everything from the internet). Dreaming ideas and making them come true is where my passion lies. I currently mostly write projects for my own personal use, as part of teams.",
+  "email": "farid@tepian.id",
+  "open_to_work": false,
+  "avatars": "avatars/5375373797303120360.jpg",
+  "socials": [
+    {
+      "label": "github",
+      "url": "https://github.com/miroocloud",
+      "icon": "tabler:brand-github",
+      "openInNewTab": true
+    },
+    {
+      "label": "X/Twitter",
+      "url": "https://x.com/miroocloud",
+      "icon": "tabler:brand-x",
+      "openInNewTab": true
+    },
+    {
+      "label": "linkedin",
+      "url": "https://www.linkedin.com/in/faridhnzz",
+      "icon": "tabler:brand-linkedin",
+      "openInNewTab": true
+    },
+    {
+      "label": "steam",
+      "url": "https://steamcommunity.com/id/mojok",
+      "icon": "tabler:brand-steam",
+      "openInNewTab": true
+    }
+  ],
+  "goals": ["Contribute to OSS", "Build indie SaaS", "Get into DevRel", "Get into full time developer"]
+}

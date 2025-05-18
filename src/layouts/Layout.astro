@@ -1,0 +1,129 @@
+---
+import "../styles/global.css";
+import { SEO } from "astro-seo";
+import MetaVerification from "@components/MetaVerification.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const defaultTitle = "Farid Nizam";
+const defaultDescription =
+  "Hey, I am Farid Nizam. A Network Engineering also a Pull-stack Developer (pull everything from the internet).";
+const canonical = new URL(Astro.url.pathname, Astro.url);
+const defaultImage = "";
+
+const {
+  title = "",
+  description = defaultDescription,
+  image = defaultImage,
+  article = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <MetaVerification />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="stylesheet"
+      href="https://fontlay.com/css2?family=Outfit:wght@100..900&display=swap"
+    />
+    <SEO
+      title={title}
+      titleDefault={defaultTitle}
+      titleTemplate={`%s | ${defaultTitle}`}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title: title,
+          type: article ? "article" : "website",
+          image: image,
+          url: canonical,
+        },
+        optional: {
+          siteName: defaultTitle,
+          description: description,
+          locale: "en_US",
+        },
+        image: {
+          alt: `${title} - ${defaultTitle}`,
+          width: 1200,
+          height: 630,
+        },
+        article: article
+          ? {
+              publishedTime: Astro.props.publishDate,
+              modifiedTime: Astro.props.updatedDate,
+              authors: ["Farid Nizam"],
+              tags: Astro.props.tags || [],
+            }
+          : undefined,
+      }}
+      twitter={{
+        creator: "@miroocloud",
+        site: "@miroocloud",
+        card: "summary",
+        title: title,
+        description: description,
+        image: image,
+        imageAlt: `${title} - ${defaultTitle}`,
+      }}
+      extend={{
+        meta: [
+          { name: "theme-color", content: "#3182ce" },
+          { name: "twitter:domain", content: "fayln.com" },
+          { name: "robots", content: "index, follow" },
+          { name: "author", content: "Farid Nizam" },
+          {
+            name: "keywords",
+            content:
+              Astro.props.keywords ||
+              "Farid Nizam, network engineering, web development",
+          },
+        ],
+        link: [
+          { rel: "author", href: "https://fayln.com" },
+          { rel: "me", href: "https://twitter.com/miroocloud" },
+        ],
+      }}
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": article ? "Article" : "WebSite",
+        headline: title,
+        description: description,
+        image: image,
+        url: canonical.toString(),
+        datePublished: Astro.props.publishDate,
+        dateModified: Astro.props.updatedDate,
+        author: {
+          "@type": "Person",
+          name: "Farid Nizam",
+          url: "https://fayln.com",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Farid Nizam",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://fayln.com/logo.png",
+          },
+        },
+      })}
+    />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

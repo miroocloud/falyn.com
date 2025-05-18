@@ -1,0 +1,86 @@
+---
+import personal from "../data/personal.json";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import FindMeOnSosial from "@components/FindMeOnSosial.astro";
+import DiscordPresence from "@components/DiscordPresence.astro";
+import DiscordPresenceSpotify from "@components/DiscordPresenceSpotify.astro";
+import Projects from "@components/Projects.astro";
+import DiscordStatus from "@components/DiscordStatus.astro";
+---
+
+<Layout>
+  <Container class="py-16 md:py-24">
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <article class="md:max-w-xl prose prose-neutral">
+        <p
+          class="mb-2 w-min whitespace-nowrap font-medium text-pastel-subtext lg:text-lg"
+        >
+          Hey, I'm
+        </p>
+        <div class="flex my-auto items-center gap-3">
+          <h1
+            class="mb-0 text-4xl md:text-6xl font-bold tracking-tight text-pastel-text"
+          >
+            {personal.full_name}
+          </h1>
+          {
+            personal?.pronouns && (
+              <span
+                class="rounded bg-pastel-badge px-2 py-0.5 font-semibold text-xs text-pastel-subtext cursor-default"
+                title={`Pronouns: ${personal.pronouns}`}
+              >
+                {personal.pronouns}
+              </span>
+            )
+          }
+
+          <!-- <DiscordStatus status="idle" /> -->
+        </div>
+        <p class="m-0 text-pastel-subtext">
+          {
+            personal.role.filter(Boolean).map((item, i, arr) => (
+              <span>
+                {item}
+                {i < arr.length - 1 && <span class="mx-1">&#8226;</span>}
+              </span>
+            ))
+          }
+        </p>
+
+        <p
+          class="text-pretty text-justify text-base leading-relaxed tracking-wide text-pastel-subtext"
+        >
+          {personal.bio}
+        </p>
+      </article>
+
+      <div class="hidden md:flex md:justify-center">
+        <img
+          src={personal.avatars}
+          alt="Profile"
+          class="h-56 w-56 mask object-cover shadow-xl shadow-pastel-dark border-4 border-pastel-border"
+          loading="lazy"
+          crossorigin="anonymous"
+        />
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="mt-10 space-y-3">
+      <h3 class="text-sm font-semibold capitalize text-zinc-800">Find me on</h3>
+      <FindMeOnSosial />
+    </div>
+
+    <!-- Presence -->
+    <!-- <div class="mt-10 relative w-full grid grid-cols-1 gap-5 md:grid-cols-2">
+      <DiscordPresence />
+      <DiscordPresenceSpotify />
+    </div> -->
+  </Container>
+
+  <Container class="py-12">
+    <h2 class="text-3xl font-bold mb-12">Projects</h2>
+    <Projects />
+  </Container>
+</Layout>

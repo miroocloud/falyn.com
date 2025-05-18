@@ -1,0 +1,26 @@
+---
+import { socials } from "../data/personal.json";
+import Anchor from "./Anchor.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="flex flex-wrap gap-2">
+  {
+    socials.map(({ url, icon, label, openInNewTab }) => {
+      const normalizedLabel =
+        label?.[0]?.toUpperCase() + label?.slice(1)?.toLowerCase();
+
+      return (
+        <Anchor
+          href={url}
+          openInNewTab={openInNewTab}
+          class="social-link flex items-center p-2 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+          title={normalizedLabel}
+          aria-label={`Visit my ${label}`}
+        >
+          <Icon name={icon} size={22} />
+        </Anchor>
+      );
+    })
+  }
+</div>

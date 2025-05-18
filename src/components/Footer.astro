@@ -1,0 +1,39 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-12 pt-12 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="font-mono text-sm text-center">
+      <p class="transition hover:text-accent">
+        Built with
+        <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent hover:underline"
+          title="Astro - Builds fast content sites, powerful web applications, dynamic server APIs, and everything in-between."
+          >Astro</a
+        >,
+        <a
+          href="https://tailwindcss.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent hover:underline"
+          title="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
+          >Tailwind CSS</a
+        >, and
+        <a
+          href="https://vitejs.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent hover:underline"
+          title="Vite - Next Generation Frontend Tooling">Vite</a
+        >.
+      </p>
+      <p class="mt-2 cursor-default">
+        &copy; {currentYear} Farid Nizam.
+      </p>
+    </div>
+  </div>
+</footer>

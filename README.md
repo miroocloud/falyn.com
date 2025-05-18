@@ -1,19 +1,27 @@
-## Farid's Personal Site (fayln.com)
+# Farid's Personal Site
 
-The code behind my personal site.\
-Hosted on [Cloudflare Pages](https://pages.cloudflare.com/).\
-That's it. Thanks.
+This is the code behind my personal website.
+It's super simple, just like me 😎
 
-### Setup
+- Built with love (and a bunch of caffeine)
+- Deployed via [Cloudflare Pages](https://pages.cloudflare.com/)
+- Nothing fancy, just vibes
 
-```bash
-## Install dependencies
-$ pnpm install
+That's it for now. Thanks for stopping by and checking out my site!
 
-## Start the development server
-$ pnpm dev
-```
+## ⚡ Commands
 
-## License
+All commands are run from the root of the project, from a terminal:
 
-This Project is Under [MIT license ](LICENSE) &copy; 2023 Farid Nizam
+| Command               | Action                                           |
+| :-------------------- | :----------------------------------------------- |
+| `bun install`         | Installs dependencies                            |
+| `bun dev`             | Starts local dev server at `localhost:4321`      |
+| `bun build`           | Build your production site to `./dist/`          |
+| `bun preview`         | Preview your build locally, before deploying     |
+| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help` | Get help using the Astro CLI                     |
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

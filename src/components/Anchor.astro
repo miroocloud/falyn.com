@@ -1,0 +1,29 @@
+---
+type RelType =
+  | "nofollow"
+  | "noopener"
+  | "noreferrer"
+  | "ugc"
+  | "sponsored"
+  | "author"
+  | "me";
+
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  href?: string;
+  openInNewTab?: boolean;
+  rel?: RelType;
+}
+
+const { href = "/", openInNewTab = false, rel, ...props } = Astro.props;
+const finalRel = openInNewTab
+  ? [rel, "noopener", "noreferrer"].filter(Boolean).join(" ")
+  : rel;
+---
+
+<a
+  href={href}
+  target={openInNewTab ? "_blank" : undefined}
+  rel={finalRel || undefined}
+  {...props}>
+  <slot />
+</a>

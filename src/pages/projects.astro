@@ -1,0 +1,51 @@
+---
+import Anchor from "@components/Anchor.astro";
+import Container from "@components/Container.astro";
+import Layout from "@layouts/Layout.astro";
+import ProjectsSection from "@components/Projects.astro";
+
+const pageTitle = "Projects";
+const pageDescription =
+  "Explore all the cool projects I coded instead of sleeping like a normal human. Built with love, coffee, and questionable life choices.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Container>
+    <article class="flex flex-col gap-12">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-4xl font-bold mb-2" aria-label="Projects">
+            Projects
+          </h1>
+          <p class="text-slate-600">
+            Things I coded instead of sleeping like a normal human.
+          </p>
+        </div>
+        <Anchor
+          href="https://go.fayln.com/github"
+          openInNewTab
+          class="opacity-80 hover:opacity-100 transition-opacity"
+          aria-label="Visit my GitHub profile"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="38"
+            height="38"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="tabler-icon tabler-icon-arrow-up-right"
+          >
+            <path d="M17 7l-10 10"></path>
+            <path d="M8 7h9v9"></path>
+          </svg>
+        </Anchor>
+      </div>
+
+      <ProjectsSection />
+    </article>
+  </Container>
+</Layout>

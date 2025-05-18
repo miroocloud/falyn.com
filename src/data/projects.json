@@ -1,0 +1,44 @@
+[
+  {
+    "id": "08aac21b-12c7-4b3e-94d9-d340b0300f6a",
+    "title": "Domin",
+    "summary": "A search tool to check domain name availability before buying.",
+    "category": "Web Development",
+    "images": "assets/icons/domin.png",
+    "links": {
+      "homepage": "https://cekdomain.js.org/",
+      "repository": "https://github.com/miroocloud/domin"
+    },
+    "techStack": ["HTML", "CSS", "JavaScript"],
+    "status": "active",
+    "tags": ["featured", "open-source"]
+  },
+  {
+    "id": "e72099fc-ed15-4979-9bce-52b9c442b0bb",
+    "title": "Fontlay",
+    "summary": "A simple Google Fonts proxy. Prevents tracking and is privacy-friendly.",
+    "category": "Web Development",
+    "images": "assets/icons/fontlay.png",
+    "links": {
+      "homepage": "https://cekdomain.js.org/",
+      "repository": "https://github.com/miroocloud/domin"
+    },
+    "techStack": ["React", "NextJS", "TailwindCSS", "NodeJS"],
+    "status": "active",
+    "tags": ["new", "featured", "open-source"]
+  },
+  {
+    "id": "e72099fc-ed15-4979-9bce-52b9c442b0bb",
+    "title": "Mikrotik Notif Discord",
+    "summary": " Monitoring your Mikrotik devices from your discord.",
+    "category": "",
+    "images": "",
+    "links": {
+      "homepage": "https://mikrotikdc.vercel.app/",
+      "repository": "https://github.com/miroocloud/Mikrotik-Notif-Discord"
+    },
+    "techStack": ["NodeJS"],
+    "status": "active",
+    "tags": ["archive", "featured", "open-source"]
+  }
+]

@@ -1,0 +1,236 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-outfit: "Outfit", "sans-serif";
+
+  --color-accent: rgba(var(--accent) / 1);
+  --color-accent-lighter: rgba(var(--accent-lighter) / 1);
+
+  /* Gen Z Pastel Palette */
+  --color-lavender: #d4bfff;
+  --color-mint: #c1f0db;
+  --color-peach: #ffcdc2;
+  --color-butter: #fff0b5;
+  --color-baby-blue: #b8e0ff;
+  --color-lilac: #e5c6ff;
+  --color-sage: #d0e2c3;
+  --color-coral: #ffa69e;
+
+  /* Dark mode versions */
+  --color-lavender-dark: #8c65e0;
+  --color-mint-dark: #6bc8a5;
+  --color-peach-dark: #ff9580;
+  --color-butter-dark: #f0d06b;
+  --color-baby-blue-dark: #5ea8e0;
+  --color-lilac-dark: #b180d8;
+  --color-sage-dark: #94b580;
+  --color-coral-dark: #e06b63;
+
+  --color-brand-hn: #f0652f;
+  --color-brand-github: #181717;
+  --color-brand-firefish: #eb6f92;
+  --color-brand-mastodon: #6364ff;
+  --color-brand-threads: #000000;
+  --color-brand-kofi: #ff5e5b;
+  --color-brand-discord: #5865f2;
+  --color-brand-modrinth: #00af5c;
+  --color-brand-spotify: #1ed760;
+  --color-brand-spotify-pastel: #34d399;
+
+  --color-pastel-light: #f9fafb;
+  --color-pastel-dark: #1f2937;
+  --color-pastel-border: #e0e7ff;
+  --color-pastel-text: #374151;
+  --color-pastel-text-dark: #f9fafb;
+  --color-pastel-subtext: #6b7280;
+  --color-pastel-subtext-dark: #9ca3af;
+  --color-pastel-badge: #dbeafe;
+  --color-pastel-badge-dark: #2563eb;
+  --color-pastel-hover: #f3f4f6;
+  --color-pastel-hover-dark: #374151;
+
+  --background-image-presence-default: linear-gradient(
+    135deg,
+    var(--color-pastel-badge-dark) 10%,
+    var(--color-pastel-hover-dark) 100%
+  );
+  --background-image-presence-spotify: linear-gradient(
+    135deg,
+    var(--color-brand-spotify) 10%,
+    #191414 100%
+  );
+  --background-image-presence-discord: linear-gradient(
+    135deg,
+    var(--color-brand-discord) 10%,
+    #191414 100%
+  );
+
+  /* Gen Z gradient backgrounds */
+  --background-image-lavender-peach: linear-gradient(
+    135deg,
+    var(--color-lavender) 10%,
+    var(--color-peach) 100%
+  );
+  --background-image-mint-blue: linear-gradient(
+    135deg,
+    var(--color-mint) 10%,
+    var(--color-baby-blue) 100%
+  );
+  --background-image-butter-sage: linear-gradient(
+    135deg,
+    var(--color-butter) 10%,
+    var(--color-sage) 100%
+  );
+
+  ---container-2xl: 87.5rem;
+
+  /* Additional variables for antfu-like styling */
+  --max-width: 65ch;
+  --gap: 1rem;
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Color scheme similar to antfu.me */
+  --c-bg: #fff;
+  --c-bg-dark: #050505;
+  --c-scrollbar: #eee;
+  --c-scrollbar-dark: #222;
+  --c-border: rgba(125, 125, 125, 0.3);
+  --c-text: #222;
+  --c-text-dark: #ddd;
+  --c-selection: rgba(125, 125, 125, 0.2);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-scrollbar) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--c-scrollbar);
+  border-radius: 999px;
+}
+
+html.dark * {
+  scrollbar-color: var(--c-scrollbar-dark) transparent;
+}
+
+html.dark *::-webkit-scrollbar-thumb {
+  background-color: var(--c-scrollbar-dark);
+}
+
+html {
+  @apply scroll-smooth antialiased;
+  font-size: 16px;
+  color: var(--c-text);
+  background-color: var(--c-bg);
+  overflow-x: hidden;
+  line-height: 1.75;
+}
+
+html.dark {
+  color: var(--c-text-dark);
+  background-color: var(--c-bg-dark);
+}
+
+body {
+  @apply relative;
+  @apply transition duration-300;
+  @apply font-outfit;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: var(--c-selection);
+}
+
+.layout {
+  @apply m-auto;
+  max-width: var(--max-width);
+  @apply container relative grow overflow-hidden;
+  padding: 1rem 1.5rem;
+}
+
+.lheader {
+  @apply sticky left-0 top-0 z-10 mt-0 h-[60px] px-6 md:mt-0 lg:px-3;
+  @apply mx-auto flex items-center justify-between;
+  @apply z-50 mb-6;
+  max-width: var(--max-width);
+  font-family: var(--font-sans);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s ease;
+}
+
+.lheader.scrolled {
+  border-bottom: 1px solid var(--c-border);
+  @apply backdrop-blur-sm;
+}
+
+.scheader {
+  @apply backdrop-brightness-80 backdrop-blur-xl;
+}
+
+.mask {
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJz48cGF0aCBkPSdNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAwWicvPjwvc3ZnPg==");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  border-bottom: 1px dotted var(--c-border);
+}
+
+/* a:hover {
+  opacity: 0.7;
+} */
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.nav-links a {
+  border-bottom: none;
+}
+
+.nav-links a.router-link-active {
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
