@@ -1,3 +1,18 @@
+# Astro build output
+/dist
+
+# Astro cache
+/.astro
+
+# Astro preview server output
+/.vercel
+
+# Astro SSR output (if using SSR)
+/.server/
+
+# Astro image cache
+# /public/_astro
+
 # Logs
 logs
 *.log
